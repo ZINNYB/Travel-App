@@ -7,13 +7,13 @@ module.exports = {
   mode: "development",
   devtool: "source-map",
   stats: "verbose",
-  module: {
-    output: {
-      library: {
-        name: "Travel",
-        type: "var",
-      },
+  output: {
+    library: {
+      name: "Travel",
+      type: "var",
     },
+  },
+  module: {
     rules: [
       {
         test: /\.m?js$/,
