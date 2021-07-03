@@ -7,14 +7,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = {
   entry: "./src/client/index.js",
   mode: "production",
-  output: {
-    library: {
-      name: "Travel",
-      type: "var",
-    },
-  },
   devtool: "source-map",
   stats: "verbose",
+  output: {
+    libraryTarget: "var",
+    library: "Client",
+  },
   module: {
     rules: [
       {
@@ -32,19 +30,19 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(png|jpe?g|gif)$/,
         loader: "file-loader",
         options: {
           name: "[path][name].[ext]",
-          outputPath: "media",
-          publicPath: "media",
+          outputPath: "imgs",
+          publicPath: "imgs",
         },
       },
       {
         test: /\.html$/i,
         loader: "html-loader",
       },
-    ],  
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -61,5 +59,4 @@ module.exports = {
       protectWebpackAssets: false,
     }),
   ],
-  
 };

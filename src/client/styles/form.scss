@@ -1,0 +1,50 @@
+@mixin heading {
+  padding-top: 4rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+}
+form {
+  border-radius: 3px;
+  padding: 80px 40px 40px 40px;
+}
+
+.form-inputs {
+  text-align: center;
+}
+
+.TravelDate {
+  display: flex;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.TravelDate input:not(:last-child) {
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px 20px;
+  width: 80%;
+  line-height: 16px;
+  margin: 10px 0;
+  border-radius: 3px;
+  outline: none;
+}
+
+// Result Section
+.result {
+  margin: 10px 0;
+}
+h2 {
+  @include heading;
+  font-size: 2rem;
+}
+.result-reading div {
+  padding: 1.5rem;
+  font-size: 2rem;
+}
+
+.result-reading {
+  text-align: center;
+}

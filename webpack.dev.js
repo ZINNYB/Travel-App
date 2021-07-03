@@ -8,10 +8,8 @@ module.exports = {
   devtool: "source-map",
   stats: "verbose",
   output: {
-    library: {
-      name: "Travel",
-      type: "var",
-    },
+    libraryTarget: "var",
+    library: "Client",
   },
   module: {
     rules: [
@@ -34,8 +32,10 @@ module.exports = {
         loader: "file-loader",
         options: {
           name: "[path][name].[ext]",
-          outputPath: "media",
-          publicPath: "media",
+          outputPath: "src/client/media/img",
+          publicPath: "src/client/media/img",
+          esModule: false,
+          emitFile: true,
         },
       },
       {

@@ -1,11 +1,26 @@
+@mixin heading {
+  padding-top: 4rem;
+  text-transform: capitalize;
+  font-weight: bold;
+  text-align: center;
+}
 #nav {
+  background-color: darkkhaki;
   ul {
     list-style: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
   li {
-    display: flex;
+    padding: 1rem 0;
+    align-self: auto;
   }
   a {
     text-decoration: none;
   }
+}
+h1 {
+  @include heading;
+  font-size: 3rem;
 }
