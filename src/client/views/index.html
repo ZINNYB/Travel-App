@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Travel App</title>
+    <title>Weather Journal</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap"
+      rel="stylesheet"
+    />
   </head>
+
   <body>
     <header>
       <nav id="nav">
@@ -17,70 +19,91 @@
         </ul>
       </nav>
       <h1>plan to travel in bliss</h1>
+    </nav>
     </header>
     <main>
-      <section id="main">
-        <div id="error"></div>
-        <form
-          method="POST"
-          id="form"
-          action="http://localhost:8081/valid"
-          onsubmit="return Client.handleSubmit(event)"
-        >
-          <div class="form-inputs">
+      <section id="travel-wrapper" class="travel-wrapper">
+        <figure id="img-case">
+          <figcaption class="fig-caption">Enter your destination!</figcaption>
+        </figure>
+        <div class="travel-details">
+          <h2 class="travel-caption"> Plan Your Trip</h2>
+          <input
+            id="location"
+            class="date"
+            name="location"
+            placeholder="Enter location"
+          />
+          <div class="form">
+            <label class="date-label" for="date">Departure Date</label>
             <input
-              id="name"
-              type="text"
-              name="input"
-              required
-              placeholder="Enter location"
-            />
-          </div>
-          <div class="TravelDate">
-            <input
-              id="name"
+              id="departure-date"
               type="date"
-              name="input"
+              class="date"
+              name="date"
               required
-              placeholder="Enter date of Travel"
             />
+          </div>
+          <div class="form">
+            <label class="date-label" for="date">Return Date</label>
             <input
-              id="name"
+              id="return-date"
               type="date"
-              name="input"
+              class="date"
+              name="date"
               required
-              placeholder="Enter date of return"
-            />
-            <input
-              id="name"
-              type="text"
-              name="input"
-              required
-              placeholder="length of stay"
             />
           </div>
-          <div class="form-inputs">
-            <input type="submit" id="submit" name="" value="submit" />
-          </div>
-        </form>
-      </section>
-
-      <section class="hidden results">
-        <h2>Weather Data</h2>
-        <div>
-          <img
-            src="/src/client/media/img/placeholder.jpg"
-            alt="Image of the location in search"
+          <input
+            type="submit"
+            id="submit"
+            class="submit"
+            name="submit"
+            value="Submit"
           />
         </div>
-        <div class="result-reading">
-          <div>logitude</div>
-          <div>latitude</div>
+      </section>
+      <section id="travel-results" class="overlay">
+        <div class="results-box">
+          <div class="results">
+            <figure>
+              <img
+                id="results-image"
+                class="results-image"
+                src="../media/placeholder.jpg"
+                alt="image of a city"
+              />
+              <figcaption class="">Enjoy your Trip!</figcaption>
+            </figure>
+            <div class="results-entry">
+              <h4 id="result-destination">Trip to: Paris, France</h4>
+              <div id="result-departure">Departure: Monday, July, 20 2021</div>
+              <div id="result-return">Return: Friday 25, 2021</div>
+              <div id="result-duration">Duration: 4 days</div>
+              <div id="trip-start">Your trip is 2 days from now</div>
+              <div>The current weather:</div>
+              <div id="result-temp">22.56°F</div>
+              <div id="result-description">Partly Cloudy</div>
+            </div>
+          </div>
+          <div class="results-footer">
+            <button id="save" type="button" class="btn save">
+              Save
+            </button>
+            <button id="close" type="button" class="btn">Close</button>
+          </div>
         </div>
       </section>
+      <section id="saved-travel-results" class="saved-travel-results"></section>
     </main>
-    <footer>
-      <p>This is a footer</p>
-    </footer>
+    <!-- <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker.register("/service-worker.js");
+        });
+      }
+    </script> --> 
   </body>
 </html>

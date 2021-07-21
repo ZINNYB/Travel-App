@@ -1,0 +1,113 @@
+$flex-column: column;
+$margin: 7em 20em;
+
+.travel-wrapper {
+  display: flex;
+  background-color: rgba(249, 250, 250, 0.61);
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  margin: $margin;
+  border-radius: 25px;
+  padding: 1em;
+}
+
+.travel-details {
+  margin: 0 2em 2em 2em;
+  width: 50%;
+}
+.travel-details input {
+  width: 100%;
+}
+
+figure {
+  margin: 0.2em;
+  padding: 0;
+}
+
+figure#img-case {
+  width: 50%;
+}
+
+.travel-img {
+  max-width: 100%;
+  height: auto;
+}
+
+.travel-caption {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2.1em;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.date {
+  border: 0.1em solid black;
+  border-radius: 0.4em;
+  color: #000;
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0.1em 0;
+  padding: 0.2em 1.4em;
+}
+
+.date-label {
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  margin-bottom: 0.2em;
+}
+
+.submit {
+  border: 0.1em solid black;
+  border-radius: 0.4em;
+  font-size: 1.4rem;
+  width: 100%;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+}
+
+.form {
+  margin: 0.6em 0 0 0;
+}
+
+// Adding in styles for different media screen sizes
+
+@media screen and (max-width: 1300px) {
+  main {
+    min-width: 700px;
+  }
+  .travel-wrapper {
+    flex-direction: $flex-column;
+    min-width: 700px;
+    margin: $margin;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .travel-wrapper {
+    flex-direction: $flex-column;
+    min-width: 500px;
+    margin: $margin;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .travel-wrapper {
+    flex-direction: $flex-column;
+    min-width: 500px;
+    margin: 5em 10em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .travel-wrapper {
+    flex-direction: $flex-column;
+    min-width: 500px;
+    margin: 0em 2em;
+  }
+}
