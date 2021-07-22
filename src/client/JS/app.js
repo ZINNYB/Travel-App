@@ -1,6 +1,6 @@
 // Global functions
 
-import { postData } from "./helperFunction";
+import { postData, getData, updateUI } from "./helperFunction";
 
 /* Global Variables */
 const travelCard = document.getElementById("travel-wrapper");
@@ -37,6 +37,9 @@ export async function handleSubmit(event) {
   const timeTillTravel = Math.round(timeTillTripStart / (1000 * 3600 * 24));
   console.log(`timeTillTravel: ${timeTillTravel}`);
 
+  const travelCard = document.getElementById("travel-card");
+  const travelResults = document.getElementById("travel-results");
+
   await postData("http://localhost:3000/createTrip", {
     location: destination,
     startDate: startDate,
@@ -45,10 +48,10 @@ export async function handleSubmit(event) {
     timeTillTravel: timeTillTravel,
   });
 
-  await Client.getData("http://localhost:3000/geonames");
-  await Client.getData("http://localhost:3000/weatherBit");
-  await Client.getData("http://localhost:3000/pixabay");
-  await Client.updateUI("http://localhost:3000/all");
+  await getData("http://localhost:3000/geonames");
+  await getData("http://localhost:3000/weatherBit");
+  await getData("http://localhost:3000/pixabay");
+  await updateUI("http://localhost:3000/all");
   travelCard.style.display = "none";
   travelResults.style.display = "flex";
 }
