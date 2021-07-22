@@ -1,7 +1,7 @@
 $flex-column: column;
 $margin: 7em 20em;
 
-.saved-travel-results {
+.saved-travel-outcomes {
   margin: 0 auto;
   align-items: center;
   justify-content: center;
@@ -24,7 +24,7 @@ $margin: 7em 20em;
   display: flex;
 }
 
-.saved-results-entry {
+.saved-outcomes {
   margin: 0 1em 0.5em 1em;
   h4 {
     font-size: 1.2em;
@@ -55,7 +55,7 @@ $margin: 7em 20em;
     justify-content: center;
   }
 
-  .saved-results-entry {
+  .saved-outcomes {
     font-size: 1.2em;
     align-items: center;
     justify-content: center;

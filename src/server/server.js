@@ -54,16 +54,16 @@ app.get("/", function (req, res) {
 // Callback function to complete GET '/all'
 app.get("/all", (req, res) => {
   res.send(projectData);
-  console.log(projectData);
+  projectData;
 });
 
 app.post("/createTrip", (req, res) => {
-  console.log(req.body);
+  req.body;
 
   // targeting the days of date to get the difference
-  console.log(req.body.startDate);
-  console.log(req.body.endDate);
-  console.log(req.body.duration);
+  req.body.startDate;
+  req.body.endDate;
+  req.body.duration;
 
   const startDays = req.body.startDate.slice(0, 10);
   const endDays = req.body.endDate.slice(0, 10);
@@ -84,12 +84,12 @@ app.get("/geonames", (req, res) => {
   console.log(url);
   getData(url)
     .then((response) => {
-      console.log("Data from Genames[0]");
+      //  Data from Genames[0];
       console.log(response.geonames[0]);
       projectData.lat = response.geonames[0].lat;
       projectData.long = response.geonames[0].lng;
 
-      console.log(`ProjectData is, ${projectData}`);
+      `ProjectData is, ${projectData}`;
       res.send(true);
     })
     .catch((error) => {
@@ -98,7 +98,6 @@ app.get("/geonames", (req, res) => {
 });
 
 app.get("/weatherBit", (req, res) => {
-  console.log("GET weatherBit");
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${projectData.lat}&lon=${projectData.long}&key=${process.env.WBit_Key}`;
   console.log(url);
   getData(url).then((response) => {
@@ -109,7 +108,6 @@ app.get("/weatherBit", (req, res) => {
       if (data.valid_date == projectData.startDate) {
         projectData.description = data.weather.description;
         projectData.temp = data.temp;
-        console.log(projectData);
         res.send(true);
       } else return;
     });
@@ -119,11 +117,8 @@ app.get("/weatherBit", (req, res) => {
 app.get("/pixabay", (req, res) => {
   console.log("GET pixabay");
   const url = `https://pixabay.com/api/?key=${process.env.PIXABAY_API_KEY}&q=${projectData.location}&image_type=photo`;
-  console.log(url);
   getData(url).then((response) => {
-    console.log("Data from pixabay");
     projectData.img = response.hits[0].webformatURL;
-    console.log(projectData);
     res.send(true);
   });
 });

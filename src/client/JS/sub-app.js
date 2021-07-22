@@ -35,23 +35,23 @@ const updateUI = async (url) => {
     const data = await response.json();
     document.getElementById("results-image").src = data.img;
     document.getElementById(
-      "result-destination"
+      "outcome-destination"
     ).innerHTML = `Trip to: ${data.location}`;
     document.getElementById(
-      "result-departure"
+      "outcome-departure"
     ).innerHTML = `Departure: ${data.startDate}`;
     document.getElementById(
-      "result-return"
+      "outcome-return"
     ).innerHTML = `Return: ${data.endDate}`;
     document.getElementById(
-      "result-duration"
+      "outcome-duration"
     ).innerHTML = `Duration: ${data.duration} days`;
     document.getElementById(
-      "trip-start"
+      "start-date"
     ).innerHTML = `Your trip is ${data.timeTillTravel} days from now`;
-    document.getElementById("result-temp").innerHTML = `${data.temp}°F`;
+    document.getElementById("outcome-temp").innerHTML = `${data.temp}°F`;
     document.getElementById(
-      "result-description"
+      "outcome-description"
     ).innerHTML = `${data.description}`;
   } catch (error) {
     console.log("error", error);

@@ -1,6 +1,5 @@
-// Global functions
-
-import { postData, getData, updateUI } from "./helperFunction";
+// Global imports
+import { postData, getData, updateUI } from "./sub-app";
 
 /* Global Variables */
 const travelCard = document.getElementById("travel-wrapper");
@@ -10,7 +9,7 @@ export async function handleSubmit(event) {
   event.preventDefault();
   console.log("The trip begins");
 
-  // Create a new date instance dynamically with JS
+  // obtain a new date instance dynamically with JS
   const currentDate = new Date();
   const newDate =
     currentDate.getMonth() +
@@ -24,7 +23,7 @@ export async function handleSubmit(event) {
   const departureDate = document.getElementById("departure-date").value;
   const returnDate = document.getElementById("return-date").value;
 
-  // Calculate the travel duration
+  // obtain travel duration
   const startDate = new Date(departureDate);
   const endDate = new Date(returnDate);
 
@@ -32,12 +31,12 @@ export async function handleSubmit(event) {
   const daysInTravel = tripDuration / (1000 * 3600 * 24);
   console.log(daysInTravel);
 
-  // Find the time between now and departure
+  // Find the time between travel
   const timeTillTripStart = startDate.getTime() - currentDate.getTime();
   const timeTillTravel = Math.round(timeTillTripStart / (1000 * 3600 * 24));
   console.log(`timeTillTravel: ${timeTillTravel}`);
 
-  const travelCard = document.getElementById("travel-card");
+  const travelCard = document.getElementById("travel-wrapper");
   const travelResults = document.getElementById("travel-results");
 
   await postData("http://localhost:3000/createTrip", {
@@ -62,19 +61,21 @@ export const closeButtonEvent = () => {
 };
 
 export const saveButtonEvent = () => {
-  const savedTravelResults = document.getElementById("saved-travel-results");
+  const savedTravelOutcomes = document.getElementById("saved-travel-outcomes");
   const savedResultsImage = document.getElementById("results-image").src;
-  const savedResultDestination =
-    document.getElementById("result-destination").innerHTML;
+  const savedResultDestination = document.getElementById(
+    "outcome-destination"
+  ).innerHTML;
   const savedResultDeparture =
-    document.getElementById("result-departure").innerHTML;
-  const savedResultReturn = document.getElementById("result-return").innerHTML;
+    document.getElementById("outcome-departure").innerHTML;
+  const savedResultReturn = document.getElementById("outcome-return").innerHTML;
   const savedResultDuration =
-    document.getElementById("result-duration").innerHTML;
-  const savedTripStart = document.getElementById("trip-start").innerHTML;
-  const savedResultTemp = document.getElementById("result-temp").innerHTML;
-  const savedResultDescription =
-    document.getElementById("result-description").innerHTML;
+    document.getElementById("outcome-duration").innerHTML;
+  const savedTripStart = document.getElementById("start-date").innerHTML;
+  const savedResultTemp = document.getElementById("outcome-temp").innerHTML;
+  const savedResultDescription = document.getElementById(
+    "outcome-description"
+  ).innerHTML;
 
   const savedTrip = `<div class="saved-results-box">
   <div class="saved-results">
@@ -82,21 +83,20 @@ export const saveButtonEvent = () => {
       <img id="saved-results-image" class="saved-results-image" src=${savedResultsImage} alt='London Skyline'>
       <figcaption class="">Enjoy your Trip!</figcaption>
     </figure>
-    <div class="saved-results-entry">
-      <h4 id="saved-result-destination">${savedResultDestination}</h4>
-      <div id="saved-result-departure">${savedResultDeparture}</div>
-      <div id="saved-result-return">${savedResultReturn}</div>
-      <div id="saved-result-duration">${savedResultDuration}</div>
-      <div id="saved-trip-start">${savedTripStart}</div>
-      <div>The current weather:</div>
-      <div id="saved-result-temp">${savedResultTemp}</div>
-      <div id="saved-result-description">${savedResultDescription}</div>
+    <div class="saved-outcomes">
+      <h4 id="saved-outcome-destination">${savedResultDestination}</h4>
+      <div id="saved-outcome-departure">${savedResultDeparture}</div>
+      <div id="saved-outcome-return">${savedResultReturn}</div>
+      <div id="saved-outcome-duration">${savedResultDuration}</div>
+      <div id="saved-start-date">${savedTripStart}</div>
+      <div>current weather:</div>
+      <div id="saved-outcome-temp">${savedResultTemp}</div>
+      <div id="saved-outcome-description">${savedResultDescription}</div>
     </div>
     <div class='saved-results-footer'>
     </div>`;
 
-  // Add the trip to the section
-  savedTravelResults.insertAdjacentHTML("beforeend", savedTrip);
+  savedTravelOutcomes.insertAdjacentHTML("beforeend", savedTrip);
 
   travelCard.style.display = "flex";
   travelResults.style.display = "none";

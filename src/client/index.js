@@ -8,9 +8,9 @@ import img from "./media/placeholder.jpg";
 import { handleSubmit } from "./js/app";
 import { closeButtonEvent } from "./js/app";
 import { saveButtonEvent } from "./js/app";
-import { postData } from "./js/helperFunction";
-import { getData } from "./js/helperFunction";
-import { updateUI } from "./js/helperFunction";
+import { postData } from "./js/sub-app";
+import { getData } from "./js/sub-app";
+import { updateUI } from "./js/sub-app";
 
 document.getElementById("submit").addEventListener("click", handleSubmit);
 document.getElementById("save").addEventListener("click", saveButtonEvent);
