@@ -1,5 +1,5 @@
-const handleSubmit = require("./sub-app");
+const updateUI = require("./sub-app");
 
 test("Function handleSubmit should be defined", () => {
-  expect(handleSubmit).toBeDefined();
+  expect(updateUI).toBeDefined();
 });
