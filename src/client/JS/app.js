@@ -5,7 +5,7 @@ import { postData, getData, updateUI } from "./sub-app";
 const travelCard = document.getElementById("travel-wrapper");
 const travelResults = document.getElementById("travel-results");
 
-export async function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   console.log("The trip begins");
 
@@ -55,12 +55,12 @@ export async function handleSubmit(event) {
   travelResults.style.display = "flex";
 }
 
-export const closeButtonEvent = () => {
+const closeButtonEvent = () => {
   travelCard.style.display = "flex";
   travelResults.style.display = "none";
 };
 
-export const saveButtonEvent = () => {
+const saveButtonEvent = () => {
   const savedTravelOutcomes = document.getElementById("saved-travel-outcomes");
   const savedResultsImage = document.getElementById("results-image").src;
   const savedResultDestination = document.getElementById(
@@ -101,3 +101,4 @@ export const saveButtonEvent = () => {
   travelCard.style.display = "flex";
   travelResults.style.display = "none";
 };
+export { closeButtonEvent, handleSubmit, saveButtonEvent };
