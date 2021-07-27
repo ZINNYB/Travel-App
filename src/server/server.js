@@ -26,7 +26,6 @@ app.use(bodyParser.json());
 
 // Cors for cross origin allowance
 const cors = require("cors");
-const { response } = require("express");
 app.use(cors());
 
 // Initialize the main project folder
@@ -54,16 +53,9 @@ app.get("/", function (req, res) {
 // Callback function to complete GET '/all'
 app.get("/all", (req, res) => {
   res.send(projectData);
-  projectData;
 });
 
 app.post("/createTrip", (req, res) => {
-  req.body;
-
-  // targeting the days of date to get the difference
-  req.body.startDate;
-  req.body.endDate;
-  req.body.duration;
 
   const startDays = req.body.startDate.slice(0, 10);
   const endDays = req.body.endDate.slice(0, 10);
@@ -89,7 +81,7 @@ app.get("/geonames", (req, res) => {
       projectData.lat = response.geonames[0].lat;
       projectData.long = response.geonames[0].lng;
 
-      `ProjectData is, ${projectData}`;
+      console.log(`ProjectData is, ${JSON.stringify(projectData,null,2)}`);
       res.send(true);
     })
     .catch((error) => {
@@ -105,7 +97,7 @@ app.get("/weatherBit", (req, res) => {
     const weatherData = response.data;
 
     weatherData.forEach((data) => {
-      if (data.valid_date == projectData.startDate) {
+      if (data.valid_date === projectData.startDate) {
         projectData.description = data.weather.description;
         projectData.temp = data.temp;
         res.send(true);
@@ -128,20 +120,21 @@ app.get("/all", (req, res) => {
   console.log(projectData);
 });
 
-// Test to test the server is workinga
+// Test to test the server is working
 app.get("/test", (req, res) => {
   res.send("Hi, the server is working...");
 });
 
 // Global functions
 const getData = async (url) => {
-  const response = await fetch(url);
   try {
+    const response = await fetch(url);
     const data = await response.json();
     // console.log(data);
     return data;
   } catch (error) {
     console.log("error", error);
+    return error;
   }
 };
 
