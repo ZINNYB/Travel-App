@@ -4,7 +4,7 @@ dotenv.config();
 const fetch = require("node-fetch");
 
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+let projectData = {};
 
 // Require Express to run server and routes
 const express = require("express");
@@ -33,18 +33,6 @@ app.use(express.static("dist"));
 
 console.log(__dirname);
 
-// Setup Server
-const port = 3000;
-
-// Spin up the server
-const server = app.listen(port, listening);
-
-// Callback to degug
-function listening() {
-  console.log("server running");
-  console.log(`running on localhost ${port}`);
-}
-
 // Callback to receive website
 app.get("/", function (req, res) {
   res.sendFile("dist/index.html");
@@ -56,7 +44,6 @@ app.get("/all", (req, res) => {
 });
 
 app.post("/createTrip", (req, res) => {
-
   const startDays = req.body.startDate.slice(0, 10);
   const endDays = req.body.endDate.slice(0, 10);
 
@@ -81,7 +68,7 @@ app.get("/geonames", (req, res) => {
       projectData.lat = response.geonames[0].lat;
       projectData.long = response.geonames[0].lng;
 
-      console.log(`ProjectData is, ${JSON.stringify(projectData,null,2)}`);
+      console.log(`ProjectData is, ${JSON.stringify(projectData, null, 2)}`);
       res.send(true);
     })
     .catch((error) => {
@@ -137,5 +124,8 @@ const getData = async (url) => {
     return error;
   }
 };
+// Spin up the server
+
+module.exports = app;
 
 //
