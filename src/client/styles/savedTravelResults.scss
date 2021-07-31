@@ -39,9 +39,9 @@ $margin: 7em 20em;
 // Adding in styles for different media screen sizes
 
 @media screen and (max-width: 1300px) {
-  main {
-    min-width: 700px;
-  }
+  // main {
+  //   min-width: 700px;
+  // }
   .saved-results-box {
     display: flex;
     flex-direction: $flex-column;
@@ -75,9 +75,9 @@ $margin: 7em 20em;
 }
 
 @media screen and (max-width: 900px) {
-  main {
-    height: 80%;
-  }
+  // main {
+  //   height: 80%;
+  // }
   .saved-results-box {
     flex-direction: $flex-column;
     min-width: 500px;
