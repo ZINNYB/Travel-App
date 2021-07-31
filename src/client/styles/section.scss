@@ -84,14 +84,14 @@ label {
   .travel-wrapper {
     flex-direction: $flex-column;
     min-width: 700px;
-    margin: $margin;
+    margin: 12em 10em;
   }
 }
 
 @media screen and (max-width: 1050px) {
   .travel-wrapper {
     flex-direction: $flex-column;
-    min-width: 500px;
+    min-width: 9001px;
     margin: $margin;
   }
 }
@@ -99,15 +99,18 @@ label {
 @media screen and (max-width: 900px) {
   .travel-wrapper {
     flex-direction: $flex-column;
-    min-width: 500px;
+    min-width: 767px;
     margin: 5em 10em;
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 767px) {
   .travel-wrapper {
     flex-direction: $flex-column;
-    min-width: 500px;
+    min-width: 300px;
     margin: 0em 2em;
   }
+  // .travel-details input {
+  //   padding: 1rem;
+  // }
 }

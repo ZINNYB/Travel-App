@@ -26,4 +26,10 @@ header h1 {
   @include heading;
   font-size: 3rem;
   color: #fff;
+  margin-top: 5rem;
 }
+
+// @media screen and (max-width: 600px) {
+//   header h1 {
+//   }
+// }
