@@ -91,7 +91,7 @@ label {
 @media screen and (max-width: 1050px) {
   .travel-wrapper {
     flex-direction: $flex-column;
-    min-width: 9001px;
+    min-width: 500px;
     margin: $margin;
   }
 }
@@ -105,6 +105,9 @@ label {
 }
 
 @media screen and (max-width: 767px) {
+  // main {
+  //   height: 80%;
+  // }
   .travel-wrapper {
     flex-direction: $flex-column;
     min-width: 300px;
